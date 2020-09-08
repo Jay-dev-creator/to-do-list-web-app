@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'tasks.css' %}">
+    <!-- fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,500&display=swap" rel="stylesheet">
+      <!--Scrollreveal animations-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    {% block title %}<title>My To-Do</title>{% endblock %}
+      <style>
+      html { font-size: 1rem; }
+
+      @media (min-width: 500px) {
+          html { font-size: 1.5rem; }
+      }
+      @media (min-width: 768px) {
+          html { font-size: 1.5rem; }
+      }
+      @media (min-width: 992px) {
+          html { font-size: 1rem; }
+      }
+      @media (min-width: 1200px) {
+          html { font-size: 1rem; }
+      }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="{% url 'list' %}" class="navbar-brand">To-Do</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+            <a href="{% url 'list' %}" class="nav-item nav-link">Home</a>
+            <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+        </div>
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+  window.sr = ScrollReveal();
+  sr.reveal('#greetings', {
+    delay: 1000,
+    duration: 2000,
+    origin: 'top',
+    distance: '300px',
+  })
+  sr.reveal('#center', {
+    delay: 0,
+    duration: 1000,
+    origin: 'bottom',
+    distance: '300px',
+  })
+  sr.reveal('#about', {
+    delay: 500,
+    duration: 2000,
+    origin: 'bottom',
+    distance: '300px',
+  })
+  sr.reveal('#delete', {
+    delay: 500,
+    duration: 1000,
+    origin: 'top',
+    distance: '300px',
+  })
+  sr.reveal('#update', {
+    delay: 500,
+    duration: 1000,
+    origin: 'top',
+    distance: '300px',
+  })
+  </script>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+</body>
+</html>

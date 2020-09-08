@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% block title %}<title>My To-Do | update</title>{% endblock %}
+<div class="center-column border border-dark rounded" id="update">
+    <h4>Update Task</h4>
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="for-group">
+            {{form}}
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="submit" value="update Task" class="btn btn-info">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

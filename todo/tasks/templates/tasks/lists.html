@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+{% block title %}<title>My To-Do | Home </title>{% endblock %}
+<div class="container-fluid center-column border border-dark rounded" id="center">
+        <div class="container-fluid">
+            <p class="text-center text-secondary" id="greetings"><span class="text-info">Hello!</span> Welcome to your To-Do list</p>
+        </div>
+        <div>
+            {% for task in tasks %}
+                <div class="item-row border">
+                        <a href="{% url 'update_task' task.id %}" class="btn-sm btn-warning"><i class="fa fa-pencil-square-o fa" aria-hidden="true"></i></a>
+
+                        {% if task.complete == True %}
+                            <strike id="tasks-strike">{{task}}</strike>
+                        {% else %}
+                            <span id="tasks">{{task}}</span>
+                        {% endif %}
+                        <a href="{% url 'delete' task.id %}" class="btn-sm btn-danger float-right"> <i class="fa fa-trash fa" aria-hidden="true"></i></a>
+                    </div>
+                {% endfor %}
+                <div class="mt-4">
+                    <form method="post" action="/">
+                        {% csrf_token %}
+                        <div class="form-group text-center">
+                            {{form.title}}
+                            <button type="submit" class="btn btn-outline-success">Add Task</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+
+</div>
+
+
+{% endblock %}
